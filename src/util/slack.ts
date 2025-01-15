@@ -87,7 +87,7 @@ export const blocks = {
       },
       element: {
         action_id: id,
-        type: "statuc_select",
+        type: "static_select",
         placeholder: {
           type: "plain_text",
           text: placeholder,
@@ -114,4 +114,21 @@ export function modal({
   title,
   submit_text = "Submit",
   blocks,
-}: ModalArgs) {}
+}: ModalArgs) {
+  return {
+    trigger_id,
+    view: {
+      type: "modal",
+      callback_id: id,
+      title: {
+        type: "plain_text",
+        text: title,
+      },
+      submit: {
+        type: "plain_text",
+        text: submit_text,
+      },
+      blocks,
+    },
+  };
+}
